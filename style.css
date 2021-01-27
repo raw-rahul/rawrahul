@@ -1,0 +1,390 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div {
+    
+  }
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+
+body{
+    background-color: black;
+    color:#212121;
+    font-family: 'Potta One', cursive;
+    font-weight: 300;
+    line-height: 1.3;
+    text-rendering: optimizeLegibility;
+    position: relative;
+
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+
+nav .name-logo{
+    font-size: 3rem;
+    font-weight: 900;
+    margin-left: 2rem;
+    color: black;
+}
+
+nav ul{
+    height: 100%;
+    display: flex;
+}
+
+nav ul li{
+    position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+nav ul.main li::before{
+    content: ""; 
+    position: absolute;
+    top: 0;
+    z-index: -10;
+    left: 0;
+    bottom:0;
+    right: 0;
+    padding: 2rem;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(#303F9F 0%,#303F9F 50%,transparent 50%);
+    background-size: 100% 200%;
+    overflow: auto;
+    background-position-y: 100%;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+nav ul.main li:hover::before {
+    background-position-y:0%;
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+nav ul.main li p{
+    color: black ;
+    transition: all 0.2s;
+
+}
+
+nav ul.main li:hover p{
+    color: #fff ;
+}
+
+nav ul.main li.fill p{
+    color: #fff;
+}
+
+nav ul.main li.fill::before{
+    background-position-y: 0%;
+    background-image: linear-gradient(#3F51B5 0%,#3F51B5 50%,transparent 50%);
+    opacity: 1;
+}
+
+.hamburger-cont{
+    cursor: pointer;
+    height: 3.5rem;
+    display: none;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hamburger{
+    height: .5rem;
+    width: 3.5rem;
+    background-color: #212121;
+    margin-right: 2rem;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.hamburger::after{
+    content: "";
+    height: .5rem;
+    width: 3.5rem;
+    background-color: #212121;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    transition: all 0.2s;
+
+}
+
+.hamburger::before{
+    content: "";
+    height: .5rem;
+    width: 3.5rem;
+    background-color: #212121;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    transition: all 0.2s;
+
+}
+
+.hamburger.toggle{
+    background-color: transparent;
+}
+.hamburger.toggle::after{
+    transform:  rotate(-135deg);
+    top: 0;
+}
+
+.hamburger.toggle::before{
+    transform:  rotate(135deg);
+    top: 0;
+}
+
+.side-nav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    height: 100vh;
+    width: 30rem;
+    background-color: #FDCC0D;
+    display: none;
+    transform: translateX(0rem);
+    transition: all 0.3s;
+
+}
+
+.side-nav ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-nav ul li::before{
+    display: none;
+}
+
+.side-nav ul li{
+    width: 50%;
+    height: 10rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.side-nav ul li p{
+    color: pink;
+    transition: all 0.2s;
+}
+
+
+.side-nav ul li.fill{
+    background-color: #3F51B5;
+}
+
+.side-nav ul li.fill p{
+    color: pink;
+}
+
+.shift{
+    transform: translateX(32rem);
+}
+
+
+section{    
+    width: 100%;
+    min-height: calc(100vh - 8rem);
+    margin-top: 8rem;
+    padding: 4rem 1rem;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+.about .my-img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.about .my-img img{
+    width: 100%;
+}
+
+.about h1,
+.hobbies h1,
+.skills h1{
+    font-size: 4rem;
+    text-align: center;
+    margin:3rem 0 4rem 0;
+    position: relative;
+}
+
+.about p{
+    width: 40%;
+    font-size: 2.3rem;
+    text-align: left;
+    font-weight: 400;
+    color: pink;
+
+}
+h1{
+    color: pink;    
+}
+.about h1::after,
+.hobbies h1::after,
+.skills h1::after{
+    content: "";
+    height: 0.5rem;
+    width: 7rem;
+    background-color: #303F9F;
+    position: absolute;
+    bottom: -1.3rem;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.hobbies ul li{
+    font-size: 3rem;
+    text-align: center;
+    line-height: 2;
+    font-weight: 400;
+    display: flex;
+    
+}
+
+.hobbies ul li span {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    font-size: 2.5rem;
+    color: #3F51B5;
+}
+
+
+
+
+.skills ul{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+ul{
+    color: pink;
+}
+.skills ul li{
+    font-size: 3rem;
+    margin-top: 2rem;
+    font-weight: 400;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills ul li ion-icon{
+    margin-left: 1rem;
+    color: #FDCC0D;
+}
+
+.hidden{
+    opacity: 0;
+}
+.dispnone{
+    display: none;
+}
+
+
+
+@media only screen and (max-width: 1130px){
+    .skills ul {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 760px){
+    .skills ul {
+        width: 60%;
+    }
+
+    .about p{
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 570px){
+    .skills ul {
+        width: 90%;
+    }
+    .about p{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .skills ul {
+        width: 90%;
+    }
+
+    .skills ul li{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width:475px){
+    .main{
+        display: none;
+    }
+
+    .hamburger-cont{
+        display: flex;
+    }
+
+    .side-nav{
+        display: flex;
+    }
+}
